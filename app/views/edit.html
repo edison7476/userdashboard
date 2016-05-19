@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  </head>
+  <body>
+  <div class="container-fluid">
+  <ul class="nav nav-tabs">
+  	<li role="presentation" ><a href="/testapp/{{ session['id'] }}">Home Page</a></li>
+  	<li role="presentation"><a href="/dashboard">Dashboard</a></li>
+  	<li role="presentation" class="active"><a href="/edit">Profile</a></li>
+    <li role="presentation"><a href="/logout">Log Out</a></li>
+	</ul>
+    		<h1>Edit Profile </h1>
+        <br>
+          session ID: {{ session['id'] }} <br>
+            USer ID: {{user['id'] }}
+  <div class="col-xs-12 col-sm-6 col-md-6">
+  <form action="/changeinfo/{{ user['id'] }}" method="POST">
+
+    <label>Email address</label>
+    <input name ="email" type="email" class="form-control" placeholder="Email">
+    <label>Fisrt Name</label>
+    <input name = "first_name" type="text" class="form-control" placeholder="First Name">
+    <label>Last Name</label>
+    <input name = "last_name" type="text" class="form-control" placeholder="Last Name">
+    <br>
+    {% if session['level'] >2 %}
+      <p>Change user's level</p>
+    {% endif %}
+    <button type="submit" class="btn btn-default">Save</button>
+  </form>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-6">
+  <form action="/changepassword/{{ user['id'] }}" method="POST">  
+    <label>Password</label>
+    <input name = "password" type="password" class="form-control" placeholder="Password"> 
+    <label>Password Confirmation</label>
+    <input name = "confirm_password" type="password" class="form-control" placeholder="Password Confirmation"> 
+    <br>
+  <button type="submit" class="btn btn-default">Update Password</button>
+</form> 
+    {% if errors %}
+    {% for error in errors %}
+      <h3 style="color: red">{{ error }}</h3>
+    {% endfor %} 
+    {% endif %} 
+</div>
+</div>
+  </body>      
+ 
+</html>
