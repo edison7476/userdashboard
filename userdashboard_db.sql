@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `userdashboard` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `userdashboard`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mybd1
+-- Host: 127.0.0.1    Database: userdashboard
 -- ------------------------------------------------------
 -- Server version	5.5.41-log
 
@@ -34,7 +36,7 @@ CREATE TABLE `comments` (
   KEY `fk_comments_posts1_idx` (`post_id`),
   CONSTRAINT `fk_comments_posts1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_comments_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +45,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,'hi milani','2016-05-18 21:37:55',NULL,11,13),(2,'hihi','2016-05-18 21:58:40',NULL,11,13),(3,'hi, edison','2016-05-18 22:09:36',NULL,11,11),(4,'Hello, Mike This is Edison','2016-05-18 22:09:56',NULL,11,10),(5,'hi milani','2016-05-18 22:11:41',NULL,12,12),(6,'hello milain','2016-05-18 22:12:09',NULL,12,15),(7,'hey, you better response me ','2016-05-18 22:13:37',NULL,11,11),(8,'hi this is shran','2016-05-18 22:14:21',NULL,11,10),(9,'hi milani','2016-05-18 22:20:44',NULL,15,12);
+INSERT INTO `comments` VALUES (1,'hi milani','2016-05-18 21:37:55',NULL,11,13),(2,'hihi','2016-05-18 21:58:40',NULL,11,13),(3,'hi, edison','2016-05-18 22:09:36',NULL,11,11),(4,'Hello, Mike This is Edison','2016-05-18 22:09:56',NULL,11,10),(5,'hi milani','2016-05-18 22:11:41',NULL,12,12),(6,'hello milain','2016-05-18 22:12:09',NULL,12,15),(7,'hey, you better response me ','2016-05-18 22:13:37',NULL,11,11),(8,'hi this is shran','2016-05-18 22:14:21',NULL,11,10),(9,'hi milani','2016-05-18 22:20:44',NULL,15,12),(10,'hi sharon','2016-05-19 17:01:05',NULL,11,11),(11,'you suck too','2016-05-19 17:10:22',NULL,11,17),(12,'hey daddy','2016-05-19 17:13:33',NULL,14,18),(13,'hi this is Edison','2016-05-19 17:32:24',NULL,14,18),(14,'hello this is milani\r\n','2016-05-19 17:32:54',NULL,14,18),(15,'I need to update github files\r\n','2016-05-19 21:37:02',NULL,11,19);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +66,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`),
   KEY `fk_posts_users_idx` (`user_id`),
   CONSTRAINT `fk_posts_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +75,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'hello',NULL,'2016-05-17 19:32:39',NULL,11),(2,'Hi, I am Sharon',NULL,'2016-05-17 20:00:51',NULL,12),(3,'Hi, I am Sharon',NULL,'2016-05-17 20:01:53',NULL,12),(4,'Hi, I am Sharon',NULL,'2016-05-17 20:02:56',NULL,12),(5,'Hi, this is sharon',NULL,'2016-05-17 20:05:43',NULL,12),(6,'Hi, this is sharon',NULL,'2016-05-17 20:06:49',NULL,12),(7,'Hi, this is sharon',NULL,'2016-05-17 20:07:12',NULL,12),(8,'Hello, this is Sharon',NULL,'2016-05-17 20:14:21',NULL,12),(9,'give one more try!',NULL,'2016-05-17 20:17:56',NULL,12),(10,'hi, mike',13,'2016-05-17 22:09:40',NULL,12),(11,'Hi, Edison ',11,'2016-05-17 22:19:08',NULL,12),(12,'Hello, Dad',11,'2016-05-17 22:22:37',NULL,14),(13,'Hi, mommy!',12,'2016-05-17 22:22:47',NULL,14),(14,'Hi, xia xia',14,'2016-05-17 22:24:55',NULL,11),(15,'hello milani',14,'2016-05-18 21:37:41',NULL,11),(16,'hey, mike this is edison',13,'2016-05-18 22:16:17',NULL,11),(17,'hi you suck',11,'2016-05-18 22:20:34',NULL,15);
+INSERT INTO `posts` VALUES (1,'hello',NULL,'2016-05-17 19:32:39',NULL,11),(2,'Hi, I am Sharon',NULL,'2016-05-17 20:00:51',NULL,12),(3,'Hi, I am Sharon',NULL,'2016-05-17 20:01:53',NULL,12),(4,'Hi, I am Sharon',NULL,'2016-05-17 20:02:56',NULL,12),(5,'Hi, this is sharon',NULL,'2016-05-17 20:05:43',NULL,12),(6,'Hi, this is sharon',NULL,'2016-05-17 20:06:49',NULL,12),(7,'Hi, this is sharon',NULL,'2016-05-17 20:07:12',NULL,12),(8,'Hello, this is Sharon',NULL,'2016-05-17 20:14:21',NULL,12),(9,'give one more try!',NULL,'2016-05-17 20:17:56',NULL,12),(10,'hi, mike',13,'2016-05-17 22:09:40',NULL,12),(11,'Hi, Edison ',11,'2016-05-17 22:19:08',NULL,12),(12,'Hello, Dad',11,'2016-05-17 22:22:37',NULL,14),(13,'Hi, mommy!',12,'2016-05-17 22:22:47',NULL,14),(14,'Hi, xia xia',14,'2016-05-17 22:24:55',NULL,11),(15,'hello milani',14,'2016-05-18 21:37:41',NULL,11),(16,'hey, mike this is edison',13,'2016-05-18 22:16:17',NULL,11),(17,'hi you suck',11,'2016-05-18 22:20:34',NULL,15),(18,'hows it going Sharon',12,'2016-05-19 17:11:28',NULL,11),(19,'it works on localhost',12,'2016-05-19 21:36:18',NULL,11);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,4 +118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-19 11:38:14
+-- Dump completed on 2016-05-19 22:28:54
