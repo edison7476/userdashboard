@@ -130,5 +130,6 @@ class Welcome(Model):
 
     def all_comments(self):
         print ' ---------------  Model all_comments   ------------------------ '
-        query = "select * from posts join comments ON posts.id = comments.post_id"
+        #query = "select * from posts join comments ON posts.id = comments.post_id join users ON users.id = comments.user_id "
+        query = "select posts.id AS post_id, posts.post AS post, posts.wall_id AS wall_id, posts.user_id AS poster_id ,posts.created_at AS post_date, comments.id AS comment_id, comments.post_id AS post_wall_id,comments.created_at AS comment_date, comments.comment AS comment, users.id AS user_id, users.first_name AS first_name, users.last_name AS last_name from posts join comments ON posts.id = comments.post_id join users ON users.id = comments.user_id  "
         return self.db.query_db(query)
